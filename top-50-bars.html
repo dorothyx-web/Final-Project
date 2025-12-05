@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sip & Code | Top 50 Bars (2025)</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrapper site-header-inner">
+      <div class="site-title">
+        <span class="site-title-icon">🍸</span>
+        <a href="index.html">Sip &amp; Code: Personal Cocktail Companion</a>
+      </div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a class="nav-pill" href="classic-cocktails.html">Classic Cocktails</a></li>
+          <li><a class="nav-pill active" href="top-50-bars.html">📍 Top 50 Bars</a></li>
+          <li><a class="nav-pill" href="visited-bars.html">📷 My Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrapper">
+      <section class="page-panel" aria-labelledby="bars-title">
+        <header class="page-header">
+          <h1 id="bars-title" class="page-title">North America’s 50 Best Bars 2025</h1>
+          <p class="page-subtitle">
+            Track your journey through the top bars and mark the ones you’ve visited.
+          </p>
+
+          <div class="chip-row">
+            <div class="chip" id="visited-count">Visited 0 / 50</div>
+            <div class="chip" id="remaining-count">Remaining 50</div>
+          </div>
+
+          <div class="search-row">
+            <input class="search-input" type="search" id="bar-search" placeholder="Search by name or city…" />
+            <select class="select-pill" id="filter-status">
+              <option value="all">All Bars</option>
+              <option value="visited">Visited</option>
+              <option value="not-visited">Not visited</option>
+            </select>
+          </div>
+        </header>
+
+        <div class="bar-list" id="bar-list">
+          <!-- JavaScript will render the 50 bars here -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2025</span> Sip & Code</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // 2025 Top 50 Bars data (name + city)
+    const bars2025 = [
+      { rank: 1, name: "Handshake Speakeasy", city: "Mexico City, Mexico" },
+      { rank: 2, name: "Superbueno", city: "New York, NY, USA" },
+      { rank: 3, name: "Tlecān", city: "Mexico City, Mexico" },
+      { rank: 4, name: "Jewel of the South", city: "New Orleans, LA, USA" },
+      { rank: 5, name: "Sip & Guzzle", city: "New York, NY, USA" },
+      { rank: 6, name: "Overstory", city: "New York, NY, USA" },
+      { rank: 7, name: "Bar Pompette", city: "Toronto, ON, Canada" },
+      { rank: 8, name: "El Gallo Altanero", city: "Guadalajara, Jalisco, Mexico" },
+      { rank: 9, name: "Licorería Limantour", city: "Mexico City, Mexico" },
+      { rank: 10, name: "Kumiko", city: "Chicago, IL, USA" },
+      { rank: 11, name: "Clemente Bar", city: "New York, NY, USA" },
+      { rank: 12, name: "Mírate", city: "Los Angeles, CA, USA" },
+      { rank: 13, name: "Café La Trova", city: "Miami, FL, USA" },
+      { rank: 14, name: "Bar Mauro", city: "Mexico City, Mexico" },
+      { rank: 15, name: "Martiny’s", city: "New York, NY, USA" },
+      { rank: 16, name: "Pacific Cocktail Haven", city: "San Francisco, CA, USA" },
+      { rank: 17, name: "True Laurel", city: "San Francisco, CA, USA" },
+      { rank: 18, name: "Employees Only", city: "New York, NY, USA" },
+      { rank: 19, name: "Double Chicken Please", city: "New York, NY, USA" },
+      { rank: 20, name: "Baltra Bar", city: "Mexico City, Mexico" },
+      { rank: 21, name: "Civil Liberties", city: "Toronto, ON, Canada" },
+      { rank: 22, name: "Aruba Day Drink", city: "Tijuana, Baja California, Mexico" },
+      { rank: 23, name: "Service Bar", city: "Washington, DC, USA" },
+      { rank: 24, name: "Thunderbolt", city: "Los Angeles, CA, USA" },
+      { rank: 25, name: "Best Intentions", city: "Chicago, IL, USA" },
+      { rank: 26, name: "Botanist Bar", city: "Vancouver, BC, Canada" },
+      { rank: 27, name: "Arca", city: "Tulum, Quintana Roo, Mexico" },
+      { rank: 28, name: "The Keefer Bar", city: "Vancouver, BC, Canada" },
+      { rank: 29, name: "Selva", city: "Oaxaca, Mexico" },
+      { rank: 30, name: "Library by the Sea", city: "Grand Cayman, Cayman Islands" },
+      { rank: 31, name: "Cloakroom", city: "Montreal, QC, Canada" },
+      { rank: 32, name: "La Factoría", city: "San Juan, Puerto Rico" },
+      { rank: 33, name: "Maison Premiere", city: "New York, NY, USA" },
+      { rank: 34, name: "Bijou Drinkery Room", city: "Mexico City, Mexico" },
+      { rank: 35, name: "Hanky Panky", city: "Mexico City, Mexico" },
+      { rank: 36, name: "Atwater Cocktail Club", city: "Montreal, QC, Canada" },
+      { rank: 37, name: "Bar Mordecai", city: "Toronto, ON, Canada" },
+      { rank: 38, name: "Meadowlark", city: "Chicago, IL, USA" },
+      { rank: 39, name: "Bisous", city: "Mexico City, Mexico" },
+      { rank: 40, name: "Kaito del Valle", city: "Mexico City, Mexico" },
+      { rank: 41, name: "Yacht Club", city: "Denver, CO, USA" },
+      { rank: 42, name: "Katana Kitten", city: "New York, NY, USA" },
+      { rank: 43, name: "Angel’s Share", city: "New York, NY, USA" },
+      { rank: 44, name: "Mother", city: "Toronto, ON, Canada" },
+      { rank: 45, name: "Allegory", city: "Washington, DC, USA" },
+      { rank: 46, name: "Dante", city: "New York, NY, USA" },
+      { rank: 47, name: "Café de Nadie", city: "Mexico City, Mexico" },
+      { rank: 48, name: "Silver Lyan", city: "Washington, DC, USA" },
+      { rank: 49, name: "Bekeb", city: "San Miguel de Allende, Mexico" },
+      { rank: 50, name: "Cure", city: "New Orleans, LA, USA" }
+    ];
+
+    const BAR_STORAGE_KEY = "visitedBars2025";
+
+    function loadVisited() {
+      const raw = localStorage.getItem(BAR_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    }
+
+    function saveVisited(obj) {
+      localStorage.setItem(BAR_STORAGE_KEY, JSON.stringify(obj));
+    }
+
+    function renderBars(filter = { status: "all", search: "" }) {
+      const visited = loadVisited();
+      const container = document.getElementById("bar-list");
+      container.innerHTML = "";
+
+      let visitedCount = 0;
+
+      bars2025.forEach(bar => {
+        const isVisited = !!visited[bar.name];
+        if (filter.status === "visited" && !isVisited) return;
+        if (filter.status === "not-visited" && isVisited) return;
+        if (filter.search) {
+          const s = filter.search.toLowerCase();
+          if (!bar.name.toLowerCase().includes(s) &&
+              !bar.city.toLowerCase().includes(s)) return;
+        }
+
+        const card = document.createElement("article");
+        card.className = "bar-card";
+
+        card.innerHTML = `
+          <div class="bar-rank">#${bar.rank}</div>
+          <div class="bar-main">
+            <h2 class="bar-name">${bar.name}</h2>
+            <div class="meta-row">📍 ${bar.city}</div>
+            <p class="bar-description">Rank #${bar.rank}</p>
+          </div>
+          <div class="bar-actions">
+            <button class="${isVisited ? 'btn-success' : 'btn-outline'}">
+              ${isVisited ? '✔ Visited' : 'Mark Visited'}
+            </button>
+          </div>
+        `;
+
+        const btn = card.querySelector("button");
+        btn.addEventListener("click", () => {
+          const v = loadVisited();
+          if (v[bar.name]) {
+            delete v[bar.name];
+          } else {
+            v[bar.name] = true;
+          }
+          saveVisited(v);
+          renderBars(filter);
+        });
+
+        container.appendChild(card);
+        if (isVisited) visitedCount += 1;
+      });
+
+      document.getElementById("visited-count").textContent = `Visited ${visitedCount} / ${bars2025.length}`;
+      document.getElementById("remaining-count").textContent = `Remaining ${bars2025.length - visitedCount}`;
+    }
+
+    // initial render
+    renderBars();
+
+    // search & filter
+    document.getElementById("bar-search").addEventListener("input", (e) => {
+      renderBars({ status: document.getElementById("filter-status").value, search: e.target.value });
+    });
+    document.getElementById("filter-status").addEventListener("change", (e) => {
+      renderBars({ status: e.target.value, search: document.getElementById("bar-search").value });
+    });
+  </script>
+</body>
+</html>
