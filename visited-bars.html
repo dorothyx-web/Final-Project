@@ -17,9 +17,10 @@
       </div>
       <nav class="site-nav" aria-label="Primary navigation">
         <ul class="nav-list">
+          <li><a class="nav-pill" href="index.html">Home</a></li>
           <li><a class="nav-pill" href="classic-cocktails.html">Classic Cocktails</a></li>
-          <li><a class="nav-pill" href="top-50-bars.html">📍 Top 50 Bars</a></li>
-          <li><a class="nav-pill active" href="visited-bars.html">📷 My Gallery</a></li>
+          <li><a class="nav-pill" href="top-50-bars.html">Top 50 Bars</a></li>
+          <li><a class="nav-pill active" href="visited-bars.html">My Gallery</a></li>
         </ul>
       </nav>
     </div>
@@ -36,25 +37,34 @@
         </header>
 
         <div class="gallery-grid">
-
+          <!-- Employees only -->
+          <article class="gallery-card" data-bar-id="Employees Only">
+            <button class="gallery-card-btn" type="button">
+              <img src="images/Employees Only.jpg" alt="Cocktail at Employees only" class="gallery-image">
+              <div class="gallery-overlay">
+                <div>
+                  <div class="gallery-title">Employees Only</div>
+                  <div class="gallery-location">New York, USA</div>
+                </div>
+              </div>
+            </button>
+          </article>
 
           <!-- Quinary -->
-          <article class="gallery-card"
-                   data-bar-id="quinary">
+          <article class="gallery-card" data-bar-id="quinary">
             <button class="gallery-card-btn" type="button">
               <img src="images/Quinary.jpg" alt="Cocktail at Quinary bar" class="gallery-image">
               <div class="gallery-overlay">
                 <div>
                   <div class="gallery-title">Quinary</div>
-                  <div class="gallery-location">Hong Kong</div>
+                  <div class="gallery-location">Hong Kong, China</div>
                 </div>
               </div>
             </button>
           </article>
 
           <!-- Kaisha -->
-          <article class="gallery-card"
-                   data-bar-id="kaisha">
+          <article class="gallery-card" data-bar-id="kaisha">
             <button class="gallery-card-btn" type="button">
               <img src="images/Kaisha.jpg" alt="Cocktail at Kaisha bar" class="gallery-image">
               <div class="gallery-overlay">
@@ -67,8 +77,7 @@
           </article>
 
           <!-- Dante -->
-          <article class="gallery-card"
-                   data-bar-id="dante">
+          <article class="gallery-card" data-bar-id="dante">
             <button class="gallery-card-btn" type="button">
               <img src="images/Dante.jpg" alt="Cocktail at Dante bar" class="gallery-image">
               <div class="gallery-overlay">
@@ -81,8 +90,7 @@
           </article>
 
           <!-- Angel's Share -->
-          <article class="gallery-card"
-                   data-bar-id="angels-share">
+          <article class="gallery-card" data-bar-id="angels-share">
             <button class="gallery-card-btn" type="button">
               <img src="images/Angel's share.jpg" alt="Dimly lit drink at Angel's Share" class="gallery-image">
               <div class="gallery-overlay">
@@ -95,8 +103,7 @@
           </article>
 
           <!-- Thyme -->
-          <article class="gallery-card"
-                   data-bar-id="thyme">
+          <article class="gallery-card" data-bar-id="thyme">
             <button class="gallery-card-btn" type="button">
               <img src="images/Thyme.jpg" alt="Creative cocktail at Thyme bar" class="gallery-image">
               <div class="gallery-overlay">
@@ -109,8 +116,7 @@
           </article>
 
           <!-- Schmusk -->
-          <article class="gallery-card"
-                   data-bar-id="schmusk">
+          <article class="gallery-card" data-bar-id="schmusk">
             <button class="gallery-card-btn" type="button">
               <img src="images/Schmusk.jpg" alt="Cocktail at Schmusk bar" class="gallery-image">
               <div class="gallery-overlay">
@@ -123,8 +129,7 @@
           </article>
 
           <!-- Kumiko -->
-          <article class="gallery-card"
-                   data-bar-id="kumiko">
+          <article class="gallery-card" data-bar-id="kumiko">
             <button class="gallery-card-btn" type="button">
               <img src="images/Kumiko.jpg" alt="Refined cocktail at Kumiko" class="gallery-image">
               <div class="gallery-overlay">
@@ -137,8 +142,7 @@
           </article>
 
           <!-- Thunderbolt -->
-          <article class="gallery-card"
-                   data-bar-id="thunderbolt">
+          <article class="gallery-card" data-bar-id="thunderbolt">
             <button class="gallery-card-btn" type="button">
               <img src="images/Thunderbolt.jpg" alt="Drinks and food at Thunderbolt bar" class="gallery-image">
               <div class="gallery-overlay">
@@ -151,8 +155,7 @@
           </article>
 
           <!-- Double Chicken Please -->
-          <article class="gallery-card"
-                   data-bar-id="double-chicken-please">
+          <article class="gallery-card" data-bar-id="double-chicken-please">
             <button class="gallery-card-btn" type="button">
               <img src="images/Double Chicken Please3.jpg" alt="Cocktail at Double Chicken Please" class="gallery-image">
               <div class="gallery-overlay">
@@ -193,9 +196,20 @@
     // dynamic footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-
-
     const barData = {
+      
+     "Employees Only": {
+  title: "Employees Only",
+  location: "New York",
+  images: [
+    "images/Employees Only.jpg",
+    "images/Employees Only2.jpg",
+    "images/Employees Only3.jpg",
+    "images/Employees Only4.jpg",
+    "images/Employees Only5.jpg"
+  ]
+
+      },
       "quinary": {
         title: "Quinary",
         location: "Hong Kong",
@@ -216,7 +230,10 @@
         location: "New York, USA",
         images: [
           "images/Dante.jpg",
-          "images/Dante2.jpg"
+          "images/Dante2.jpg",
+          "images/Dante3.jpg",
+          "images/Dante4.jpg",
+          "images/Dante5.jpg"
         ]
       },
       "angels-share": {
@@ -288,7 +305,6 @@
       // Clear any previous images
       lightboxGrid.innerHTML = "";
 
-      // Add images
       data.images.forEach((src, index) => {
         const fig = document.createElement("figure");
         fig.className = "lightbox-item";

@@ -17,9 +17,10 @@
       </div>
       <nav class="site-nav" aria-label="Primary navigation">
         <ul class="nav-list">
+          <li><a class="nav-pill" href="index.html">Home</a></li>
           <li><a class="nav-pill" href="classic-cocktails.html">Classic Cocktails</a></li>
-          <li><a class="nav-pill active" href="top-50-bars.html">📍 Top 50 Bars</a></li>
-          <li><a class="nav-pill" href="visited-bars.html">📷 My Gallery</a></li>
+          <li><a class="nav-pill active" href="top-50-bars.html">Top 50 Bars</a></li>
+          <li><a class="nav-pill" href="visited-bars.html">My Gallery</a></li>
         </ul>
       </nav>
     </div>
@@ -57,7 +58,15 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year">2025</span> Sip & Code</p>
+    <p>&copy; <span id="year">2025</span> Sip &amp; Code</p>
+    <p>
+      Source:
+      <a href="https://www.theworlds50best.com/bars/northamerica/lists/1-50"
+         target="_blank"
+         rel="noopener noreferrer">
+        North America’s 50 Best Bars (Official List)
+      </a>
+    </p>
   </footer>
 
   <script>
@@ -182,10 +191,8 @@
       document.getElementById("remaining-count").textContent = `Remaining ${bars2025.length - visitedCount}`;
     }
 
-    // initial render
     renderBars();
 
-    // search & filter
     document.getElementById("bar-search").addEventListener("input", (e) => {
       renderBars({ status: document.getElementById("filter-status").value, search: e.target.value });
     });
