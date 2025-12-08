@@ -441,7 +441,7 @@ main {
 }
 
 .cocktail-meta {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   opacity: 0.9;
   font-size: 0.9rem;
 }
@@ -449,7 +449,22 @@ main {
 
 .gallery-grid {
   display: grid;
-  gap: 1.3rem;
+  gap: 3rem;
+}
+
+.gallery-header {
+  margin-bottom: 2.2rem; 
+}
+
+.gallery-grid {
+  margin-top: 2rem; 
+}
+
+
+@media (min-width: 1020px) {
+  .gallery-header {
+    margin-bottom: 4rem; 
+  }
 }
 
 @media (min-width: 720px) {
@@ -626,4 +641,106 @@ main {
 .site-footer a:hover,
 .site-footer a:focus-visible {
   text-decoration: underline;
+}
+
+/*MOBILE ADAPTIVE LAYOUT (≤ 480px) */
+
+@media (max-width: 480px) {
+
+  /* Global spacing */
+  main {
+    padding-block: 1rem 1.5rem;
+  }
+
+  /* Header */
+  .site-header-inner {
+    padding-block: 0.5rem;
+  }
+  .nav-list {
+    gap: 0.25rem;
+  }
+  .nav-pill {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  /* Home Hero */
+  .home-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .home-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  /* Home cards */
+  .home-card-img {
+    height: 140px;
+  }
+  .home-card-content {
+    padding: 0.8rem 1rem;
+  }
+  .home-card h2 {
+    font-size: 1rem;
+  }
+  .home-card p {
+    font-size: 0.85rem;
+  }
+
+  /* Cocktails page */
+  .cocktail-image {
+    height: 150px;
+  }
+  .cocktail-body {
+    padding: 1rem;
+  }
+  .cocktail-name {
+    font-size: 1rem;
+  }
+
+  /* Top 50 Bars */
+  .bar-card {
+    padding: 0.8rem;
+    gap: 0.7rem;
+  }
+  .bar-rank {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 0.9rem;
+  }
+  .bar-name {
+    font-size: 0.95rem;
+  }
+  .meta-row {
+    font-size: 0.8rem;
+  }
+  .search-input,
+  .select-pill {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  /* Gallery page */
+  .gallery-image {
+    height: 170px;
+  }
+  .gallery-title {
+    font-size: 0.95rem;
+  }
+  .gallery-location {
+    font-size: 0.8rem;
+  }
+
+  /* Lightbox */
+  .lightbox-dialog {
+    margin: 5vh auto;
+    padding: 1rem;
+  }
+  .lightbox-title {
+    font-size: 1.1rem;
+  }
+  .lightbox-grid img {
+    height: 140px;
+  }
 }
